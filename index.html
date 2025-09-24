@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero LPV - Educación Física</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="notification" class="notification hidden">
+        <span id="notification-text"></span>
+        <button id="notification-close">&times;</button>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>📚 Tablero LPV Educación Física</h1>
+                    <p>Equipo de Educación Física - Liceo Pino Verde</p>
+                </div>
+                <div class="header-controls">
+                    <div class="current-time" id="current-time"></div>
+                    <button class="btn btn--outline btn--sm" id="help-btn" title="Ayuda">❓</button>
+                    <button class="btn btn--outline btn--sm" id="theme-toggle" title="Cambiar tema">🌙</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="search-input" class="form-control" placeholder="Buscar recursos y juegos...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn--secondary btn--sm" id="add-resource-btn">➕ Agregar Recurso</button>
+                    <button class="btn btn--outline btn--sm" id="export-btn">📥 Exportar</button>
+                    <button class="btn btn--outline btn--sm" id="view-favorites-btn">⭐ Favoritos</button>
+                    <button class="btn btn--primary btn--sm" id="view-games-btn">🏃‍♂️ Juegos</button>
+                </div>
+            </div>
+
+            <div class="quick-access" id="quick-access">
+                <h3>🚀 Accesos Rápidos</h3>
+                <div class="quick-links" id="quick-links">
+                    <!-- Se llenan dinámicamente -->
+                </div>
+            </div>
+
+            <div class="sections-grid" id="sections-grid">
+                <!-- Secciones se llenan dinámicamente -->
+            </div>
+
+            <div class="team-notes">
+                <h3>📝 Notas del Equipo</h3>
+                <div class="notes-container">
+                    <textarea id="team-notes" class="form-control" rows="3" placeholder="Agrega notas temporales para el equipo..."></textarea>
+                    <div class="notes-actions">
+                        <button class="btn btn--primary btn--sm" id="save-note-btn">Guardar Nota</button>
+                        <button class="btn btn--outline btn--sm" id="clear-notes-btn">Limpiar</button>
+                    </div>
+                </div>
+                <div class="saved-notes" id="saved-notes">
+                    <!-- Notas guardadas aparecen aquí -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Liceo Pino Verde</h4>
+                    <p>Departamento de Educación Física</p>
+                    <p>📧 equipo-efisica@liceopinover.edu.co</p>
+                </div>
+                <div class="footer-links">
+                    <p>🇨🇴 Colombia | Miércoles, 24 de Septiembre de 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de ayuda -->
+    <div id="help-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📋 Cómo usar el tablero</h3>
+                <button class="modal-close" id="close-help">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Búsqueda:</strong> Usa la barra de búsqueda para encontrar recursos y juegos específicos</li>
+                    <li><strong>Favoritos:</strong> Haz clic en la estrella para marcar documentos importantes</li>
+                    <li><strong>Juegos:</strong> Accede a la colección de juegos de calentamiento para bachillerato</li>
+                    <li><strong>Imágenes:</strong> Las tarjetas con imágenes muestran previews de documentos visuales</li>
+                    <li><strong>Tema:</strong> Cambia entre modo claro y oscuro con el botón de luna/sol</li>
+                    <li><strong>Notas:</strong> Agrega notas temporales para el equipo en la sección correspondiente</li>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-overlay"></div>
+    </div>
+
+    <!-- Modal para agregar recurso -->
+    <div id="add-resource-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>➕ Agregar Nuevo Recurso</h3>
+                <button class="modal-close" id="close-add-resource">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="new-title">Título del recurso</label>
+                    <input type="text" id="new-title" class="form-control" placeholder="Nombre del documento">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="new-url">URL del recurso</label>
+                    <input type="url" id="new-url" class="form-control" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="new-category">Categoría</label>
+                    <select id="new-category" class="form-control">
+                        <option value="planificacion">Planificación y Horarios</option>
+                        <option value="competencias">Competencias y Eventos</option>
+                        <option value="recursos">Recursos Educativos</option>
+                        <option value="comunicacion">Comunicación</option>
+                        <option value="juegos">Juegos de Calentamiento</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="new-description">Descripción</label>
+                    <textarea id="new-description" class="form-control" rows="2" placeholder="Breve descripción del recurso"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn--primary" id="save-resource-btn">💾 Guardar Recurso</button>
+                    <button class="btn btn--outline" id="cancel-resource-btn">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay"></div>
+    </div>
+
+    <!-- Modal de detalles de juego -->
+    <div id="game-detail-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="game-title">🏃‍♂️ Detalles del Juego</h3>
+                <button class="modal-close" id="close-game-detail">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="game-details-content">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay"></div>
+    </div>
+
+    <!-- Modal de imagen -->
+    <div id="image-modal" class="modal hidden">
+        <div class="modal-content modal-content--large">
+            <div class="modal-header">
+                <h3 id="image-title">📷 Vista de Imagen</h3>
+                <button class="modal-close" id="close-image-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="image-container">
+                    <img id="modal-image" src="" alt="" class="modal-image">
+                    <p id="image-description" class="image-description"></p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-overlay"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
