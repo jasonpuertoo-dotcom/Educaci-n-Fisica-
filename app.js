@@ -54,14 +54,15 @@ const appData = {
     {
       "id": 6,
       "titulo": "Pico y Cancha",
-      "descripcion": "Canal de comunicación del equipo para coordinación diaria",
-      "url": "https://mail.google.com/mail/u/0/?tab=rm&ogbl#chat/space/AAAAmX8ST9I",
-      "categoria": "comunicacion",
-      "icono": "💬",
-      "tipo": "chat",
+      "descripcion": "Horarios de educación física por grados - Secondary Both Tracks",
+      "url": "#",
+      "categoria": "planificacion",
+      "icono": "📅",
+      "tipo": "imagen",
       "frecuencia_uso": "muy_alta",
       "imagen": "1000154582.jpg",
-      "tiene_imagen": true
+      "tiene_imagen": true,
+      "solo_imagen": true
     },
     {
       "id": 7,
@@ -72,7 +73,7 @@ const appData = {
       "icono": "📅",
       "tipo": "imagen",
       "frecuencia_uso": "alta",
-      "imagen": "Fechas-relevantes-progreso-2025-2.jpg",
+      "imagen": "Fechas relevantes progreso 2025-2.png",
       "tiene_imagen": true,
       "solo_imagen": true
     }
@@ -220,12 +221,12 @@ const appData = {
     "1000154582.jpg": {
       "descripcion": "Horarios de educación física por grados - Secondary Both Tracks",
       "tipo": "horario",
-      "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzNCODJGNiIgb3BhY2l0eT0iMC4xIi8+CiAgPHRleHQgeD0iMjAwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SG9yYXJpb3MgRWR1Y2FjacOzbiBGw61zaWNhPC90ZXh0PgogIDx0ZXh0IHg9IjIwMCIgeT0iMTMwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNlY29uZGFyeSBCb3RoIFRyYWNrczwvdGV4dD4KICA8cmVjdCB4PSI1MCIgeT0iMTYwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8dGV4dCB4PSIyMDAiIHk9IjIyMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn5OKIE1hdHJpeiBkZSBIb3JhcmlvczwvdGV4dD4KPC9zdmc+"
+      "url": "1000154582.jpg"
     },
-    "Fechas-relevantes-progreso-2025-2.jpg": {
+    "Fechas relevantes progreso 2025-2.png": {
       "descripcion": "Fechas internas reporte progreso 2025-2",
       "tipo": "cronograma",
-      "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI0Y1OUUwQiIgb3BhY2l0eT0iMC4xIi8+CiAgPHRleHQgeD0iMjAwIiB5PSI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmaWxsPSIjMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GZWNoYXMgSW1wb3J0YW50ZXM8L3RleHQ+CiAgPHRleHQgeD0iMjAwIiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UmVwb3J0ZSBQcm9ncmVzbyAyMDI1LTI8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTcwIiByPSIyMCIgZmlsbD0iI0Y1OUUwQiIgb3BhY2l0eT0iMC4zIi8+CiAgPHRleHQgeD0iMTAwIiB5PSIxNzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+U0VQPC90ZXh0PgogIDxjaXJjbGUgY3g9IjIwMCIgY3k9IjE3MCIgcj0iMjAiIGZpbGw9IiNGNTlFMEIiIG9wYWNpdHk9IjAuMyIvPgogIDx0ZXh0IHg9IjIwMCIgeT0iMTc1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk9DVDWVDCG8vdGV4dD4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxNzAiIHI9IjIwIiBmaWxsPSIjRjU5RTBCIiBvcGFjaXR5PSIwLjMiLz4KICA8dGV4dCB4PSIzMDAiIHk9IjE3NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OT1Y8L3RleHQ+CiAgPHRleHQgeD0iMjAwIiB5PSIyNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+ThSBDcm9ub2dyYW1hIDIwMjU8L3RleHQ+Cjwvc3ZnPg=="
+      "url": "Fechas relevantes progreso 2025-2.png"
     }
   }
 };
